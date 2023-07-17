@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:meals_app/constants.dart';
 import 'package:meals_app/models/meal_model.dart';
+import 'package:meals_app/screens/meal_recipe_screen.dart';
 import 'package:meals_app/widgets/list_tile_meal.dart';
 
 class MealItem extends StatelessWidget {
@@ -21,12 +23,17 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MealRecipeScreen(meal: meal)));
+      },
       splashColor: const Color.fromARGB(18, 0, 0, 0),
       borderRadius: BorderRadius.circular(24),
       child: Card(
         color: Colors.white,
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+        margin: const EdgeInsets.symmetric(vertical: 4),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +65,7 @@ class MealItem extends StatelessWidget {
 
                           style: const TextStyle(
                               color: Colors.black87,
-                              fontSize: 15,
+                              fontSize: 17,
                               fontWeight: FontWeight.w500),
                           softWrap: true,
                           overflow: TextOverflow.ellipsis, //...
@@ -67,9 +74,10 @@ class MealItem extends StatelessWidget {
                       IconButton(
                           onPressed: () {},
                           icon: const Icon(
+                            //FontAwesomeIcons.solidHeart,
                             FontAwesomeIcons.heart,
-                            color: Colors.grey,
-                            size: 24,
+                            color: kIconColor,
+                            size: 22,
                           )),
                     ],
                   ),
@@ -78,7 +86,8 @@ class MealItem extends StatelessWidget {
                   Row(
                     children: [
                       ListTileMeal(
-                          icon: Icons.attach_money, label: getAffordability),
+                          icon: FontAwesomeIcons.coins,
+                          label: getAffordability),
                       const SizedBox(width: 10),
                       ListTileMeal(
                           icon: Icons.schedule_rounded,

@@ -38,6 +38,7 @@ dependencies:
   uuid: ^3.0.7
   transparent_image: ^2.0.1
   font_awesome_flutter: ^10.5.0
+  google_fonts: ^5.1.0
 
 dev_dependencies:
   flutter_test:

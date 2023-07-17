@@ -46,12 +46,12 @@ class CategoryItem extends StatelessWidget {
               bottom: 0,
               child: Container(
                 padding: const EdgeInsets.all(8),
-                color: const Color.fromARGB(152, 255, 255, 255),
+                color: const Color.fromARGB(151, 0, 0, 0),
                 child: Text(
                   category.title,
                   style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
+                      color: Colors.white,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500),
                 ),
               ),
