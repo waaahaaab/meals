@@ -13,34 +13,6 @@ class MealsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: mealsList.isNotEmpty
-      //     ? Container(
-      //         decoration: const BoxDecoration(
-      //           gradient: kGradient,
-      //         ),
-      //         child: const Center(
-      //           child: Column(
-      //             mainAxisAlignment: MainAxisAlignment.center,
-      //             children: [
-      //               Text(
-      //                 'Uh oh ... nothing here!',
-      //                 style: TextStyle(
-      //                     color: Colors.white,
-      //                     fontSize: 20,
-      //                     fontWeight: FontWeight.w500),
-      //               ),
-      //               Text(
-      //                 'Try selecting a different category!',
-      //                 style: TextStyle(
-      //                     color: Colors.white,
-      //                     fontSize: 14,
-      //                     fontWeight: FontWeight.w400),
-      //               ),
-      //             ],
-      //           ),
-      //         ),
-      //       )
-      // :
       body: Container(
         padding: const EdgeInsets.only(
           top: 26,
@@ -51,50 +23,73 @@ class MealsScreen extends StatelessWidget {
           gradient: kGradient,
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text(
-            'MEALS',
-            style: TextStyle(
-                color: Colors.white, fontSize: 80, fontWeight: FontWeight.w800),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(width: 10),
-              const Icon(
-                FontAwesomeIcons.circleChevronDown,
-                color: kIconColor,
-              ),
-            ],
+          Visibility(
+            visible: title != 'Favorites',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'MEALS',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 80,
+                      fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    const SizedBox(width: 10),
+                    const Icon(
+                      FontAwesomeIcons.circleChevronDown,
+                      color: kIconColor,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 20),
           Expanded(
             child: mealsList.isEmpty
-                ? const Center(
+                ? Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Uh oh ... nothing here!',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(height: 10),
-                        Text(
-                          'Try selecting a different category!',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
+                        const SizedBox(height: 10),
+                        Visibility(
+                          visible: title != 'Favorites' && mealsList.isEmpty,
+                          child: const Text(
+                            'Add Some Meals Now!',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Visibility(
+                          visible: title == 'Favorites',
+                          child: const Text(
+                            'Try selecting a different category!',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ),
                       ],
                     ),
