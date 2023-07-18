@@ -23,37 +23,27 @@ class MealsScreen extends StatelessWidget {
           gradient: kGradient,
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Visibility(
-            visible: title != 'Favorites',
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'MEALS',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 80,
-                      fontWeight: FontWeight.w800),
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    const SizedBox(width: 10),
-                    const Icon(
-                      FontAwesomeIcons.circleChevronDown,
-                      color: kIconColor,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+          const Text(
+            'MEALS',
+            style: TextStyle(
+                color: Colors.white, fontSize: 80, fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500),
+              ),
+              const SizedBox(width: 10),
+              const Icon(
+                FontAwesomeIcons.circleChevronDown,
+                color: kIconColor,
+              ),
+            ],
           ),
           const SizedBox(height: 20),
           Expanded(

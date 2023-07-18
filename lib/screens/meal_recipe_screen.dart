@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meals_app/constants.dart';
 import 'package:meals_app/models/meal_model.dart';
+import 'package:meals_app/widgets/characteristic_meal.dart';
+import 'package:meals_app/widgets/favorite_icon.dart';
 
 class MealRecipeScreen extends StatelessWidget {
   final MealModel meal;
@@ -30,6 +32,12 @@ class MealRecipeScreen extends StatelessWidget {
                 FontAwesomeIcons.circleChevronLeft,
                 color: Colors.white,
               )),
+          actions: [
+            FavoriteIcon(
+              meal: meal,
+              isDescriptionScreen: true,
+            )
+          ],
         ),
         body: Container(
           padding: const EdgeInsets.all(16),
@@ -47,7 +55,7 @@ class MealRecipeScreen extends StatelessWidget {
                   margin: EdgeInsets.only(
                       left: 46,
                       right: 46,
-                      top: MediaQuery.of(context).size.height * 0.09,
+                      top: MediaQuery.of(context).size.height * 0.1,
                       bottom: 16),
                   elevation: 8,
                   shadowColor: Colors.black,
@@ -80,13 +88,33 @@ class MealRecipeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 for (final step in meal.steps)
-                  Text(
-                    step.replaceAll('-', '\n'),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
+                  Center(
+                    child: Text(
+                      step,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
                     ),
                   ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CharacteristicMeal(
+                        characteristicState: meal.isGlutenFree,
+                        characteristicName: 'Gluten-free'),
+                    CharacteristicMeal(
+                        characteristicState: meal.isVegan,
+                        characteristicName: 'Vegan'),
+                    CharacteristicMeal(
+                        characteristicState: meal.isVegetarian,
+                        characteristicName: 'Vegetarian'),
+                    CharacteristicMeal(
+                        characteristicState: meal.isLactoseFree,
+                        characteristicName: 'Lactose-free'),
+                  ],
+                ),
               ],
             ),
           ),

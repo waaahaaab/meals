@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:meals_app/constants.dart';
 import 'package:meals_app/models/meal_model.dart';
 import 'package:meals_app/screens/meal_recipe_screen.dart';
+import 'package:meals_app/widgets/favorite_icon.dart';
 import 'package:meals_app/widgets/list_tile_meal.dart';
 
 class MealItem extends StatelessWidget {
@@ -71,14 +71,10 @@ class MealItem extends StatelessWidget {
                           overflow: TextOverflow.ellipsis, //...
                         ),
                       ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            //FontAwesomeIcons.solidHeart,
-                            FontAwesomeIcons.heart,
-                            color: kIconColor,
-                            size: 22,
-                          )),
+                      FavoriteIcon(
+                        meal: meal,
+                        isDescriptionScreen: false,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 10),
