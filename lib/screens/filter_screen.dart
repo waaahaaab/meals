@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/constants.dart';
+import 'package:meals_app/providers/filters_provider.dart';
 import 'package:meals_app/widgets/switch_filter.dart';
 
-enum Filter {
-  glutenFree,
-  vegan,
-  vegetarian,
-  lactoseFree,
-}
-
-class FilterScreen extends StatefulWidget {
-  const FilterScreen({super.key, required this.currentFilters});
-  final Map<Filter, bool> currentFilters;
+class FilterScreen extends ConsumerStatefulWidget {
+  const FilterScreen({super.key});
 
   @override
-  State<FilterScreen> createState() => _FilterScreenState();
+  ConsumerState<FilterScreen> createState() => _FilterScreenState();
 }
 
-class _FilterScreenState extends State<FilterScreen> {
+class _FilterScreenState extends ConsumerState<FilterScreen> {
   bool _glutenFreeFilter = false;
   bool _veganFilter = false;
   bool _vegetarianFilter = false;
@@ -25,20 +19,23 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   void initState() {
-    _glutenFreeFilter = widget.currentFilters[Filter.glutenFree]!;
-    _veganFilter = widget.currentFilters[Filter.vegan]!;
-    _vegetarianFilter = widget.currentFilters[Filter.vegetarian]!;
-    _lactoseFreeFilter = widget.currentFilters[Filter.lactoseFree]!;
+    _glutenFreeFilter = ref.read(activeFilterProvider)[Filter.glutenFree]!;
+    _veganFilter = ref.read(activeFilterProvider)[Filter.vegan]!;
+    _vegetarianFilter = ref.read(activeFilterProvider)[Filter.vegetarian]!;
+    _lactoseFreeFilter = ref.read(activeFilterProvider)[Filter.lactoseFree]!;
     super.initState();
   }
 
   void passFilters(BuildContext context) async {
-    Navigator.pop(context, {
+    ref.read(activeFilterProvider.notifier).setFilters({
       Filter.glutenFree: _glutenFreeFilter,
       Filter.vegan: _veganFilter,
       Filter.vegetarian: _vegetarianFilter,
       Filter.lactoseFree: _lactoseFreeFilter,
     });
+    Navigator.pop(context);
+    //there is an alternative way - to just use the provider
+    //without this intermediate variables
   }
 
   @override

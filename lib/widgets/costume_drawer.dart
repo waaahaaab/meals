@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meals_app/constants.dart';
+import 'package:meals_app/screens/filter_screen.dart';
 
 class CostumeDrawer extends StatelessWidget {
-  final void Function() getFilters;
-  const CostumeDrawer({required this.getFilters, super.key});
+  const CostumeDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,13 @@ class CostumeDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            onTap: getFilters,
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FilterScreen()));
+            },
             leading: const Icon(
               FontAwesomeIcons.filter,
               size: 24,

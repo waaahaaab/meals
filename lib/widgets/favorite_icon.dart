@@ -5,7 +5,7 @@ import 'package:meals_app/models/meal_model.dart';
 import 'package:meals_app/providers/favorites_provider.dart';
 import 'package:meals_app/constants.dart';
 
-class FavoriteIcon extends ConsumerStatefulWidget {
+class FavoriteIcon extends ConsumerWidget {
   const FavoriteIcon({
     super.key,
     required this.meal,
@@ -15,27 +15,14 @@ class FavoriteIcon extends ConsumerStatefulWidget {
   final MealModel meal;
 
   @override
-  ConsumerState<FavoriteIcon> createState() => _FavoriteIconState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    bool isFavorite = ref.watch(favoriteMealsProvider).contains(meal);
 
-class _FavoriteIconState extends ConsumerState<FavoriteIcon> {
-  bool isFavorite = false;
-
-  @override
-  void initState() {
-    isFavorite = ref.read(favoriteMealsProvider).contains(widget.meal);
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return IconButton(
         onPressed: () {
-          setState(() {
-            isFavorite = ref
-                .read(favoriteMealsProvider.notifier)
-                .toggleFavoriteMealsList(widget.meal);
-          });
+          isFavorite = ref
+              .read(favoriteMealsProvider.notifier)
+              .toggleFavoriteMealsList(meal);
 
           ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -47,7 +34,7 @@ class _FavoriteIconState extends ConsumerState<FavoriteIcon> {
         },
         icon: Icon(
           isFavorite ? FontAwesomeIcons.solidHeart : FontAwesomeIcons.heart,
-          color: widget.isDescriptionScreen! ? Colors.white : kIconColor,
+          color: isDescriptionScreen ? Colors.white : kIconColor,
           size: 22,
         ));
   }

@@ -99,6 +99,7 @@ class MealRecipeScreen extends StatelessWidget {
                   ),
                 const SizedBox(height: 20),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     CharacteristicMeal(
