@@ -38,16 +38,19 @@ class MealItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 120,
-              width: 130,
-              margin:
-                  const EdgeInsets.only(left: 3, right: 6, top: 3, bottom: 3),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(24),
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: NetworkImage(meal.imageUrl),
+            Hero(
+              tag: meal.id,
+              child: Container(
+                height: 120,
+                width: 130,
+                margin:
+                    const EdgeInsets.only(left: 3, right: 6, top: 3, bottom: 3),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(24),
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: NetworkImage(meal.imageUrl),
+                  ),
                 ),
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meals_app/screens/tabs_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meals_app/screens/welcome_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: GoogleFonts.bebasNeue().fontFamily,
       ),
-      home: const TabsScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }

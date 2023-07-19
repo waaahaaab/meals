@@ -1,3 +1,5 @@
+import 'package:uuid/uuid.dart';
+
 enum Complexity {
   simple,
   challenging,
@@ -10,9 +12,10 @@ enum Affordability {
   luxurious,
 }
 
+const uuid = Uuid();
+
 class MealModel {
-  const MealModel({
-    required this.id,
+  MealModel({
     required this.categories,
     required this.title,
     required this.imageUrl,
@@ -25,7 +28,7 @@ class MealModel {
     required this.isLactoseFree,
     required this.isVegan,
     required this.isVegetarian,
-  });
+  }) : id = uuid.v4();
 
   final String id;
   final List<String> categories;

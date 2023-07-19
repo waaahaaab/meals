@@ -48,18 +48,21 @@ class MealRecipeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Card(
-                  clipBehavior: Clip.hardEdge,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  margin: EdgeInsets.only(
-                      left: 46,
-                      right: 46,
-                      top: MediaQuery.of(context).size.height * 0.1,
-                      bottom: 16),
-                  elevation: 8,
-                  shadowColor: Colors.black,
-                  child: Image.network(meal.imageUrl),
+                Hero(
+                  tag: meal.id,
+                  child: Card(
+                    clipBehavior: Clip.hardEdge,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    margin: EdgeInsets.only(
+                        left: 46,
+                        right: 46,
+                        top: MediaQuery.of(context).size.height * 0.1,
+                        bottom: 16),
+                    elevation: 8,
+                    shadowColor: Colors.black,
+                    child: Image.network(meal.imageUrl),
+                  ),
                 ),
                 const SizedBox(height: 20),
                 const Text(
@@ -88,19 +91,16 @@ class MealRecipeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 for (final step in meal.steps)
-                  Center(
-                    child: Text(
-                      step,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
+                  Text(
+                    textAlign: TextAlign.center,
+                    step,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
                     ),
                   ),
                 const SizedBox(height: 20),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Column(
                   children: [
                     CharacteristicMeal(
                         characteristicState: meal.isGlutenFree,

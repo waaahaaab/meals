@@ -1,8 +1,7 @@
 import 'package:meals_app/models/meal_model.dart';
 
 final mealsData = [
-  const MealModel(
-    id: 'm1',
+  MealModel(
     categories: [
       'c1',
       'c2',
@@ -35,8 +34,7 @@ final mealsData = [
     isVegetarian: true,
     isLactoseFree: true,
   ),
-  const MealModel(
-    id: 'm2',
+  MealModel(
     categories: [
       'c2',
     ],
@@ -63,8 +61,7 @@ final mealsData = [
     isVegetarian: false,
     isLactoseFree: false,
   ),
-  const MealModel(
-    id: 'm3',
+  MealModel(
     categories: [
       'c2',
       'c3',
@@ -95,8 +92,7 @@ final mealsData = [
     isVegetarian: false,
     isLactoseFree: true,
   ),
-  const MealModel(
-    id: 'm4',
+  MealModel(
     categories: [
       'c4',
     ],
@@ -130,8 +126,7 @@ final mealsData = [
     isVegetarian: false,
     isLactoseFree: false,
   ),
-  const MealModel(
-    id: 'm5',
+  MealModel(
     categories: [
       'c2'
           'c5',
@@ -166,8 +161,7 @@ final mealsData = [
     isVegetarian: true,
     isLactoseFree: true,
   ),
-  const MealModel(
-    id: 'm6',
+  MealModel(
     categories: [
       'c6',
       'c10',
@@ -202,8 +196,7 @@ final mealsData = [
     isVegetarian: true,
     isLactoseFree: false,
   ),
-  const MealModel(
-    id: 'm7',
+  MealModel(
     categories: [
       'c7',
     ],
@@ -233,8 +226,7 @@ final mealsData = [
     isVegetarian: true,
     isLactoseFree: false,
   ),
-  const MealModel(
-    id: 'm8',
+  MealModel(
     categories: [
       'c8',
     ],
@@ -266,8 +258,7 @@ final mealsData = [
     isVegetarian: false,
     isLactoseFree: true,
   ),
-  const MealModel(
-    id: 'm9',
+  MealModel(
     categories: [
       'c9',
     ],
@@ -315,8 +306,7 @@ final mealsData = [
     isVegetarian: true,
     isLactoseFree: false,
   ),
-  const MealModel(
-    id: 'm10',
+  MealModel(
     categories: [
       'c2',
       'c5',

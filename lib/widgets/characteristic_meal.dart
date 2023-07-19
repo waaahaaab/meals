@@ -16,6 +16,7 @@ class CharacteristicMeal extends StatelessWidget {
       visible: characteristicState,
       child: Container(
         padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.symmetric(vertical: 4),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: kTextColor)),

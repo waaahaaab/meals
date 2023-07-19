@@ -32,10 +32,20 @@ class FavoriteIcon extends ConsumerWidget {
             duration: const Duration(seconds: 3),
           ));
         },
-        icon: Icon(
-          isFavorite ? FontAwesomeIcons.solidHeart : FontAwesomeIcons.heart,
-          color: isDescriptionScreen ? Colors.white : kIconColor,
-          size: 22,
+        icon: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 400),
+          transitionBuilder: (child, animation) {
+            return ScaleTransition(
+              scale: Tween<double>(begin: 0.5, end: 1).animate(animation),
+              child: child,
+            );
+          },
+          child: Icon(
+            isFavorite ? FontAwesomeIcons.solidHeart : FontAwesomeIcons.heart,
+            color: isDescriptionScreen ? Colors.white : kIconColor,
+            size: 22,
+            key: ValueKey(isFavorite),
+          ),
         ));
   }
 }
