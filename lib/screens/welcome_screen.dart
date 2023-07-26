@@ -11,13 +11,12 @@ class WelcomeScreen extends StatelessWidget {
         body: Stack(
       children: [
         Container(
-          height: double.infinity,
-          decoration: const BoxDecoration(
+            height: double.infinity,
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(
-                      'https://www.cypressgreen.in/blog/wp-content/uploads/2021/03/food.jpg'),
-                  fit: BoxFit.cover)),
-        ),
+                  image: AssetImage('assets/images/food_img.jpg'),
+                  fit: BoxFit.cover),
+            )),
         Positioned(
           bottom: 0,
           right: 0,
