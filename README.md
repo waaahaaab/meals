@@ -12,6 +12,9 @@ Tailor your recipe search with dietary filters to accommodate personal preferenc
 ### Favorite Meals: 
 Create your personalized collection of favorite recipes by saving them to your Favorites section. Easily access these go-to recipes for future cooking endeavors.
 
+## App Overview
+https://suar.me/qXa3x
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
