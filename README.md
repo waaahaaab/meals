@@ -1,6 +1,9 @@
 # Meals_app
 
 Meal app is a delightful Flutter app that brings a world of culinary inspiration to your fingertips. Whether you're a seasoned chef or a cooking enthusiast.
+
+[![Alt text](https://i.suar.me/LVEy4/l)]()   
+
 ### Recipe Variety: 
 Explore an extensive collection of mouthwatering recipes from various cuisines and culinary traditions.
 ### Intuitive Categories: 
