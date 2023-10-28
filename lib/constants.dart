@@ -10,7 +10,7 @@ const kGradient = LinearGradient(
 );
 
 const kTextColor = Color.fromARGB(255, 4, 242, 255);
-const kIconColor = Color.fromARGB(255, 24, 173, 181);
+const kIconColor = Color.fromARGB(255, 24, 173, 181);//WEVE TO CHANGE THE COLOR ICON
 
 const kGradientW = LinearGradient(
   colors: [
